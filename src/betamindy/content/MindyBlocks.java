@@ -20,6 +20,7 @@ import betamindy.world.blocks.storage.*;
 import betamindy.world.blocks.units.*;
 import mindustry.*;
 import mindustry.content.*;
+import mindustry.core.Version;
 import mindustry.ctype.*;
 import mindustry.game.*;
 import mindustry.gen.*;
@@ -622,18 +623,28 @@ public class MindyBlocks implements ContentList {
         cryoWall = new StatusWall("cryo-wall"){{
             puddle = MindyBullets.icyZoneSmall;
             destroyEffect = MindyFx.iceBurst;
-            breakSound = MindySounds.freeze;
             health = 1600;
             requirements(Category.defense, with(MindyItems.cryonite, 6, MindyItems.vector, 2));
+            
+            if(Version.number > 6){
+                destroySound = MindySounds.freeze;
+            }else{
+                breakSound = MindySounds.freeze;
+            }
         }};
 
         cryoWallLarge = new StatusWall("cryo-wall-large"){{
             destroyEffect = MindyFx.iceBurstBig;
             shotEffect = MindyFx.spikeBig;
-            breakSound = MindySounds.freeze;
             health = 6400;
             size = 2;
             requirements(Category.defense, with(MindyItems.cryonite, 24, MindyItems.vector, 8));
+    
+            if(Version.number > 6){
+                destroySound = MindySounds.freeze;
+            }else{
+                breakSound = MindySounds.freeze;
+            }
         }};
 
         teamWall = new TeamWall("team-wall"){{

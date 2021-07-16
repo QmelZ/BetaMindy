@@ -1,5 +1,6 @@
 package betamindy.world.blocks.environment;
 
+import arc.audio.*;
 import arc.graphics.*;
 import arc.graphics.g2d.*;
 import arc.math.*;
@@ -29,6 +30,9 @@ public class Crystal extends Block {
     public TextureRegion[] regions;
     public TextureRegion[] shineRegion;
     public float sizeScl = 10f;
+    
+    public Sound breakSound = MindySounds.shatter;
+    public Sound destroySound = MindySounds.shatter;
 
     public Crystal(String name, Item item){
         super(name);
@@ -39,8 +43,7 @@ public class Crystal extends Block {
         enableDrawStatus = false;
         this.item = item;
         requirements(Category.effect, with(item, 20f));
-
-        breakSound = MindySounds.shatter;
+        
         deconstructThreshold = 1f; //deconstructing it is a crime
     }
 

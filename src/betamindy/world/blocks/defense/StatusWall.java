@@ -1,6 +1,7 @@
 package betamindy.world.blocks.defense;
 
 import arc.*;
+import arc.audio.*;
 import arc.math.*;
 import arc.util.*;
 import betamindy.content.*;
@@ -23,6 +24,8 @@ public class StatusWall extends Wall {
     public Effect shotEffect = MindyFx.spike;
     public Effect destroyEffect = Fx.none;
     public BulletType puddle = MindyBullets.icyZone;
+    
+    public Sound destroySound; // breakSound always exists
 
     public StatusWall(String name){ super(name); }
 
